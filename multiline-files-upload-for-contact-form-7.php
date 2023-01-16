@@ -189,58 +189,69 @@ function zlchange_attachments($cf7, &$abort, $object)
 {
 
 	$properties = $cf7->get_properties();
+
 	$submission = WPCF7_Submission::get_instance();
 
-	$uniqid = uniqid();
 	wpcf7_init_uploads();
 	$uploads_dir = wpcf7_upload_tmp_dir();
 	$uploads_dir = wpcf7_maybe_add_random_dir($uploads_dir);
-	$zipped_files = trailingslashit($uploads_dir) . $uniqid . '.zip';
+	$zip_link_upload_dir   = wp_upload_dir();
+	$attachments = '';
 	$single_img = '';
-	$file_img = array();
-	$multi_file = false;
+
 	if ($submission) {
+
 		$multitags = empty($submission->get_contact_form()->scan_form_tags(array('type' => 'multilinefile'))) ? $submission->get_contact_form()->scan_form_tags(array('type' => 'multilinefile*')) : $submission->get_contact_form()->scan_form_tags(array('type' => 'multilinefile'));
-		$file = empty($submission->get_contact_form()->scan_form_tags(array('type' => 'file'))) ? $submission->get_contact_form()->scan_form_tags(array('type' => 'file*')) : $submission->get_contact_form()->scan_form_tags(array('type' => 'file'));
-
-
-		if(is_array($file) && !empty($file)){
-			$multitags = array_merge($file, $multitags);
+		
+		if(!empty($submission->get_contact_form()->scan_form_tags(array('type' => 'file'))) && !empty($submission->get_contact_form()->scan_form_tags(array('type' => 'file*')))){
+			$filenotrequired = $submission->get_contact_form()->scan_form_tags(array('type' => 'file'));
+			$filerequired    = $submission->get_contact_form()->scan_form_tags(array('type' => 'file*'));
+			$cf7_file        = array_merge($filerequired, $filenotrequired);
+		}else{
+			$cf7_file = empty($submission->get_contact_form()->scan_form_tags(array('type' => 'file'))) ? $submission->get_contact_form()->scan_form_tags(array('type' => 'file*')) : $submission->get_contact_form()->scan_form_tags(array('type' => 'file'));
 		}
-	
-		$getuploadfiles = $submission->uploaded_files();		
-		foreach ($multitags as $multitag) {
-			if(!empty($getuploadfiles[$multitag['name']]) && $multitag['type'] == 'file'){
-				$img = $getuploadfiles[$multitag['name']];
-				$file_img[] = $img[0];
-			}
-			if (!empty($getuploadfiles[$multitag['name']]) && $multitag['type'] == 'multilinefile' && count($getuploadfiles[$multitag['name']]) >= 2) {
+		
+		if(is_array($cf7_file) && !empty($cf7_file)){
+			$multitags = array_merge($cf7_file, $multitags);
+		}
+		
+		$getuploadfiles = $submission->uploaded_files();
+
+		foreach ($multitags as $m_key => $multitag) {
+
+			$uniqid = uniqid();
+
+			$zipped_files = trailingslashit($uploads_dir) . $uniqid . '.zip';
+
+			if (!empty($getuploadfiles[$multitag['name']]) && count($getuploadfiles[$multitag['name']]) >= 2) {
+
 				$zipping = mfcf7_zl_multilinefile_create_zip($getuploadfiles[$multitag['name']], $zipped_files);
+
 				@chmod($zipped_files, 0440);
-				$img_file = '';
-				if(is_array($file_img) && !empty($file_img)){
-					$img_file = implode("\n", $file_img);
-				}
-				$multi_file = true;
-				$properties['mail']['attachments'] = $zipped_files.PHP_EOL.$img_file;
+
+				$attachments = ($attachments != '') ? $attachments . PHP_EOL . $zipped_files : $zipped_files;
+
 				if ($zipping === false) {
+
 					$abort = true;
+
 					$properties['messages']['mail_sent_ng'] = wpcf7_get_message('zipping_failed');
 				}
-			} elseif(!empty($getuploadfiles[$multitag['name']]) && $multitag['type'] == 'multilinefile' && count($getuploadfiles[$multitag['name']]) < 2){
-				$single_img = ($single_img != '') ? $single_img.PHP_EOL.$getuploadfiles[$multitag['name']][0] : $getuploadfiles[$multitag['name']][0];
+			} elseif (!empty($getuploadfiles[$multitag['name']]) && count($getuploadfiles[$multitag['name']]) < 2) {
+
+				$single_img = ($single_img != '') ? $single_img . PHP_EOL . $getuploadfiles[$multitag['name']][0] : $getuploadfiles[$multitag['name']][0];
 			}
 		}
 	}
-	if ($single_img != '') {
-		$img_file = '';
-		if(is_array($file_img) && !empty($file_img)){
-			$img_file = implode("\n", $file_img);
-		}
-		$properties['mail']['attachments'] = $single_img.PHP_EOL.$img_file;
-	}else if(is_array($file_img) && !empty($file_img) && $multi_file == false){
-		$img_file = implode("\n", $file_img);
-		$properties['mail']['attachments'] = $img_file;
+		
+	if ($single_img != '' && $attachments != '') {
+
+		$properties['mail']['attachments'] = $attachments.PHP_EOL.$single_img;
+
+	} else if ($attachments != '') {
+		$properties['mail']['attachments'] = $attachments;
+	} else {
+		$properties['mail']['attachments'] = $single_img;
 	}
 	
 	$cf7->set_properties($properties);
