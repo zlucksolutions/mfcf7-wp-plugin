@@ -5,7 +5,7 @@ Tags: contact, form, contact form, feedback, email, ajax, captcha, multiple file
 Requires at least: 5.2
 Tested up to: 6.0.1
 Requires PHP: 5.6
-Stable tag: 2.1
+Stable tag: 2.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
