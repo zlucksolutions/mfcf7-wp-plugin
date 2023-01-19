@@ -3,9 +3,9 @@ Contributors: zluck, divyeshk71
 Donate link: https://www.buymeacoffee.com/zluck
 Tags: contact, form, contact form, feedback, email, ajax, captcha, multiple file upload for contact form 7, contact form 7, add more file contact form 7, add multiple files contact form 7
 Requires at least: 5.2
-Tested up to: 6.0.1
+Tested up to: 6.1.1
 Requires PHP: 5.6
-Stable tag: 2.3
+Stable tag: 2.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
