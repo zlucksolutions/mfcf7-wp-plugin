@@ -446,13 +446,14 @@ function mfcf7_zl_multilinefile_validation_filter($result, $tag, $args)
 		// Make sure the uploaded file is only readable for the owner process
 		@chmod($new_file, 0400);
 	}
-	return $result;
-	if (count($new_files) == 0) {
+	//return $result;
+	if (count($files) == 0) {
 		if ($tag->is_required()) {
 			$result->invalidate($tag, wpcf7_get_message('invalid_required'));
 		}
 		return $result;
 	}
+	return $result;
 	// file loop end
 	if ($new_files  && count($new_files) !== 1) {
 		$zipped_files = trailingslashit($uploads_dir) . $uniqid . '.zip';
@@ -599,13 +600,14 @@ function mfcf7_zl_multilinefile_validation_filtero($result, $tag)
 		// Make sure the uploaded file is only readable for the owner process
 		@chmod($new_file, 0400);
 	}
-	return $result;
-	if (count($new_files) == 0) {
+	//return $result;
+	if (count($files) == 0) {
 		if ($tag->is_required()) {
 			$result->invalidate($tag, wpcf7_get_message('invalid_required'));
 		}
 		return $result;
 	}
+	return $result;
 	// file loop end
 	if ($new_files && count($new_files) !== 1) {
 		$zipped_files = trailingslashit($uploads_dir) . $uniqid . '.zip';
