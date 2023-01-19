@@ -108,6 +108,9 @@ You can not, sorry!
 
 == Changelog ==
 
+= 2.4 =
+* Minor improvements & Bug fixing 
+
 = 2.3 =
 * Changes to be compatible with Latest Wordpress
 * Minor improvements & Bug fixing
