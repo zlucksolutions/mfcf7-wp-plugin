@@ -140,6 +140,33 @@ function mfcf7_zl_notice_ignor_temp(){
 	if ( isset($_GET['mfcf7_zl_rating_notice_ignor']) && 7 == intval($_GET['mfcf7_zl_rating_notice_ignor']) ) {
 		update_option('mfcf7-zl-admin-do-not-show-rating-tip', strtotime('+7 days'));
 	}
+
+	if ( isset($_GET['mfcf7_zl_offer_notice_ignor']) && 7 == intval($_GET['mfcf7_zl_offer_notice_ignor']) ) {
+		update_option('mfcf7-zl-admin-do-not-show-offer-tip', strtotime('+7 days'));
+	}
+}
+
+// Offer admin notice
+add_action( 'admin_notices', 'mfcf7_zl_admin_offer_notice' );
+function mfcf7_zl_admin_offer_notice(){
+	$offer_tip_option = get_option('mfcf7-zl-admin-do-not-show-offer-tip');
+	
+	if(!$offer_tip_option || ($offer_tip_option && time() > $offer_tip_option)){
+	?>
+		<div id="message" class="updated notice notice-info mfcf7-notice-main">
+			<?php
+				$current_url = get_admin_url();
+				if (strpos($current_url,'?') !== false) {
+					$query_string = $current_url.'&';
+				} else {
+					$query_string = $current_url.'?';
+				}
+			?>
+			<a class="mfcf7-message-close notice-dismiss" href="<?php echo $query_string; ?>mfcf7_zl_offer_notice_ignor=7"><?php _e('Dismiss','zl-mfcf7');?></a>
+			<p><?php _e('We also offer WordPress Website Development and Customization services:', 'zl-mfcf7');?> <a href="https://zluck.com/contact-us/" target="_blank"><?php _e('Request a Quote', 'zl-mfcf7');?></a></p>
+		</div>
+		<?php
+	}
 }
 
 // Add pro version notice
