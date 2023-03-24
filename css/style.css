@@ -42,5 +42,5 @@ div#mfcf7_zl_multifilecontainer {
 
 .zl-form-control-wrap input,
 .zl-form-control-wrap .mfcf7_zl_delete_file {
-    display: none;
+    display: none !important;
 }
