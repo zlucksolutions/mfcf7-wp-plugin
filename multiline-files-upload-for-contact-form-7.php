@@ -164,7 +164,7 @@ function mfcf7_zl_multilinefile_shortcode_handler($tag)
 	global $mfcf7_btn_tag_name;
 	$btntagname = $tag->name . '-' . $mfcf7_btn_tag_name;
 	// $html .= '<a href="javascript:void(0);" id="mfcf7_zl_add_file">'.$upload_label.'</a>';
-	$html .= '<p><label><span class="wpcf7-form-control-wrap" data-name="' . $btntagname . '"><input type="button" name="' . $btntagname . '" class="button button-primary qbutton" href="javascript:void(0);" id="mfcf7_zl_add_file" value="' . $upload_label . '"></span></label></p>';
+	$html .= '<p><label><span class="wpcf7-form-control-wrap" data-name="' . $btntagname . '"><input type="button" name="' . $btntagname . '" class="button button-primary qbutton" id="mfcf7_zl_add_file" value="' . $upload_label . '"></span></label></p>';
 	return $html;
 }
 
