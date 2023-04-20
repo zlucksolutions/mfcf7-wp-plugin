@@ -140,34 +140,8 @@ function mfcf7_zl_notice_ignor_temp(){
 	if ( isset($_GET['mfcf7_zl_rating_notice_ignor']) && 7 == intval($_GET['mfcf7_zl_rating_notice_ignor']) ) {
 		update_option('mfcf7-zl-admin-do-not-show-rating-tip', strtotime('+7 days'));
 	}
-
-	if ( isset($_GET['mfcf7_zl_offer_notice_ignor']) && 7 == intval($_GET['mfcf7_zl_offer_notice_ignor']) ) {
-		update_option('mfcf7-zl-admin-do-not-show-offer-tip', strtotime('+7 days'));
-	}
 }
 
-// Offer admin notice
-add_action( 'admin_notices', 'mfcf7_zl_admin_offer_notice' );
-function mfcf7_zl_admin_offer_notice(){
-	$offer_tip_option = get_option('mfcf7-zl-admin-do-not-show-offer-tip');
-	
-	if(!$offer_tip_option || ($offer_tip_option && time() > $offer_tip_option)){
-	?>
-		<div id="message" class="updated notice notice-info mfcf7-notice-main">
-			<?php
-				$current_url = get_admin_url();
-				if (strpos($current_url,'?') !== false) {
-					$query_string = $current_url.'&';
-				} else {
-					$query_string = $current_url.'?';
-				}
-			?>
-			<a class="mfcf7-message-close notice-dismiss" href="<?php echo $query_string; ?>mfcf7_zl_offer_notice_ignor=7"><?php _e('Dismiss','zl-mfcf7');?></a>
-			<p><?php _e('We also offer WordPress Website Development and Customization services:', 'zl-mfcf7');?> <a href="https://zluck.com/contact-us/" target="_blank"><?php _e('Request a Quote', 'zl-mfcf7');?></a></p>
-		</div>
-		<?php
-	}
-}
 
 // Add pro version notice
 add_action( 'admin_notices', 'mfcf7_zl_admin_premium_ver_notice' );
@@ -207,7 +181,8 @@ if(!$rating_tip_option || ($rating_tip_option && time() > $rating_tip_option)){
 	?>
   <div class="notice notice-info 1">
 		<p><?php _e('Love using <strong>Multiline files upload for contact form 7</strong> plugin, why don’t appreciate us?', 'zl-mfcf7');?></p>
-    <p><?php _e('We love and care about you. Our team is putting our maximum efforts to provide you the best functionalities.<br> We would really appreciate if you could spend a couple of seconds to give a Nice Review to the plugin for motivating us!','zl-mfcf7');?></p>
+    	<p><?php _e('We love and care about you. Our team is putting our maximum efforts to provide you the best functionalities.<br> We would really appreciate if you could spend a couple of seconds to give a Nice Review to the plugin for motivating us!','zl-mfcf7');?></p>
+		<p><?php _e('We also offer WordPress Website Development and Customization services:', 'zl-mfcf7');?> <a href="https://zluck.com/contact-us/?utm_source=MFCF7%20Pro%20Plugin&utm_medium=MFCF7%20Pro&utm_campaign=Contact&utm_content=Contact-for%20-development" target="_blank"><?php _e('Request a Quote', 'zl-mfcf7');?></a></p>
 		<p style="margin: 15px 0px;">
 			<span class="mfcf7-premium-notice-btn">
 				<a href="https://wordpress.org/plugins/multiline-files-for-contact-form-7/#reviews" target="_blank"><?php _e('Rate it Now', 'zl-mfcf7');?></a>

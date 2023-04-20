@@ -62,9 +62,6 @@ function mfcf7_zl_admin_notice_activation_hook()
 	} else {
 		update_option('mfcf7-zl-admin-do-not-show-rating-tip', strtotime('+5 days')); //show after 5 days
 	}
-	if (get_transient('mfcf7-zl-admin-do-not-show-offer-tip')) {
-		delete_transient('mfcf7-zl-admin-do-not-show-offer-tip');
-	}
 }
 /* Enqueue required javascript */
 add_action('wp_enqueue_scripts', 'mfcf7_zl_multiline_files_enqueue_script');
