@@ -5,7 +5,7 @@ Tags: contact, form, contact form, feedback, email, ajax, captcha, multiple file
 Requires at least: 5.2
 Tested up to: 6.1.1
 Requires PHP: 5.6
-Stable tag: 2.6
+Stable tag: 2.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -107,9 +107,6 @@ You can not, sorry!
 7. Change placement of files list - Premium Feature
 
 == Changelog ==
-
-= 2.6 =
-* Updated banner and style
 
 = 2.5 =
 * Added notice and some style

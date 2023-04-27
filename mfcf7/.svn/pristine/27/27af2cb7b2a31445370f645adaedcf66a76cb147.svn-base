@@ -1,11 +1,10 @@
 === Multiline files upload for contact form 7 ===
 Contributors: zluck, divyeshk71
-Donate link: https://www.buymeacoffee.com/zluck
 Tags: contact, form, contact form, feedback, email, ajax, captcha, multiple file upload for contact form 7, contact form 7, add more file contact form 7, add multiple files contact form 7
-Requires at least: 5.2
-Tested up to: 6.1.1
+Requires at least: 4.4
+Tested up to: 5.9
 Requires PHP: 5.6
-Stable tag: 2.6
+Stable tag: 2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -68,10 +67,10 @@ Multiline files upload for contact form 7 allows user to attach unlimited files 
 8. If you have configured to receive files, This plugin will send your uploaded files as single ZIP file.
 
 == Premium Features - Premium Plugin ==
-* **Can I add two `Add files` button on same page or same form?** - This feature is available in our [premium plugin](https://1.envato.market/9W6qL4)
-* **can we set min/max file upload limit?** - This feature is available in our [premium plugin](https://1.envato.market/9W6qL4)
-* **How to change location of file list? (Screenshot 7)** - If you want to change location of file list, try our [premium plugin](https://1.envato.market/9W6qL4)
-* **How to remove one file if more than one files selected in batch?** - This feature is available in our [premium plugin](https://1.envato.market/9W6qL4)
+* **Can I add two `Add files` button on same page or same form?** - This feature is available in our [premium plugin](https://codecanyon.net/item/multiline-files-upload-for-contact-form-7/20632083)
+* **can we set min/max file upload limit?** - This feature is available in our [premium plugin](https://codecanyon.net/item/multiline-files-upload-for-contact-form-7/20632083)
+* **How to change location of file list? (Screenshot 7)** - If you want to change location of file list, try our [premium plugin](https://codecanyon.net/item/multiline-files-upload-for-contact-form-7/20632083)
+* **How to remove one file if more than one files selected in batch?** - This feature is available in our [premium plugin](https://codecanyon.net/item/multiline-files-upload-for-contact-form-7/20632083)
 
 == How to change style? ==
 If you want to change our plugin button or others file listing style and apply your custom style please add your custom css in your theme's css file. Adding style in child theme is recommended. Here I have shown style guide for button and listing. so, you can easily update style of the elements.
@@ -84,17 +83,9 @@ If you want to change our plugin button or others file listing style and apply y
 
 == Frequently Asked Questions ==
 
-=  Will it work with other form plugins except from Contact Form 7? = 
-
-No
-
-= I am not getting files attached in email = 
-
-Make sure, you followed instructions to setup attachment in contact form 7 Mail option, refer screenshot 5.
-
-= How can I get seperate files instead of one zip file as attachment? = 
-
-You can not, sorry!
+1. Will it work with other form plugins except from Contact Form 7? - **No**
+2. I am not getting files attached in email - **Make sure, you followed instructions to setup attachment in contact form 7 Mail option, refer screenshot 5.**
+3. How can I get seperate files instead of one zip file as attachment? - **You can not, sorry!**
 
 == Screenshots ==
 
@@ -107,28 +98,6 @@ You can not, sorry!
 7. Change placement of files list - Premium Feature
 
 == Changelog ==
-
-= 2.6 =
-* Updated banner and style
-
-= 2.5 =
-* Added notice and some style
-
-= 2.4 =
-* Minor improvements & Bug fixing 
-
-= 2.3 =
-* Changes to be compatible with Latest Wordpress
-* Minor improvements & Bug fixing
-
-= 2.2 =
-* Changes to be compatible with Latest Wordpress
-* Minor improvements
-
-= 2.1 =
-* Changes to be compatible with Latest Wordpress
-* File Type Restriction bug fixed
-
 = 2.0 =
 * Changes to be compatible with Contact Form 7 v5.4
 
