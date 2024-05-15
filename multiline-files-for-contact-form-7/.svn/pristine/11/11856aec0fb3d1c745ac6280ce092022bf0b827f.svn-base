@@ -110,6 +110,7 @@ You can not, sorry!
 
 = 2.7 =
 * Changes to be compatible with Latest Wordpress
+* Minor improvements
 
 = 2.6 =
 * Updated banner and style
