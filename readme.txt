@@ -1,15 +1,15 @@
 === Multiline files upload for contact form 7 ===
 Contributors: zluck, divyeshk71
 Donate link: https://www.buymeacoffee.com/zluck
-Tags: contact, form, contact form, feedback, email, ajax, captcha, multiple file upload for contact form 7, contact form 7, add more file contact form 7, add multiple files contact form 7
+Tags: contact form, multiple file upload for contact form 7, contact form 7, add multiple files through contact form 7, multiple files send
 Requires at least: 5.2
-Tested up to: 6.4
+Tested up to: 6.5
 Requires PHP: 5.6
-Stable tag: 2.7
+Stable tag: 2.8
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Multiline files upload for contact form 7
+Multiline files upload for contact form 7 allows user to attach unlimited files to upload to Contact Form 7 in wordpress website.
 
 == Description ==
 
@@ -108,8 +108,13 @@ You can not, sorry!
 
 == Changelog ==
 
+= 2.8 =
+* Added feedbacks popup when deactivate the plugin
+* Changes to be compatible with Latest Wordpress
+
 = 2.7 =
 * Changes to be compatible with Latest Wordpress
+* Minor improvements
 
 = 2.6 =
 * Updated banner and style
@@ -134,7 +139,6 @@ You can not, sorry!
 
 = 2.0 =
 * Changes to be compatible with Contact Form 7 v5.4
-
 
 = 1.9 =
 * Safari Ajax issue fixed,
