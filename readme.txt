@@ -2,10 +2,10 @@
 Contributors: zluck, divyeshk71
 Donate link: https://www.buymeacoffee.com/zluck
 Tags: contact form, multiple file upload for contact form 7, contact form 7, add multiple files through contact form 7, multiple files send
-Requires at least: 5.2
-Tested up to: 6.5
+Requires at least: 5.6
+Tested up to: 6.7.1
 Requires PHP: 5.6
-Stable tag: 2.8
+Stable tag: 3.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -107,6 +107,18 @@ You can not, sorry!
 7. Change placement of files list - Premium Feature
 
 == Changelog ==
+
+= 3.0.0 =
+* Implement support for the Tag Generator v2.
+
+= 2.9.1 =
+* Fix the undefined variable error when upgrading plugin in WordPress version 6.6.2
+
+= 2.9 =
+* Fix the Wordfence security issues. Props to [Tieu Pham Trong Nhan](https://www.wordfence.com/threat-intel/vulnerabilities/researchers/tieu-nhan)
+
+= 2.8.1 =
+* Warning fixes 
 
 = 2.8 =
 * Added feedbacks popup when deactivate the plugin
