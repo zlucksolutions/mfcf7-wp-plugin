@@ -1,7 +1,7 @@
 === MultiLine Files for Contact Form 7 ===
 Contributors: zluck, divyeshk71
 Donate link: https://www.buymeacoffee.com/zluck
-Tags: contact form 7, multiple file upload, file attachment, form plugin, file uploader, drag drop, WordPress forms, file management, email attachments
+Tags: contact form 7, multiple file upload, file attachment, form plugin, file uploader
 Requires at least: 5.6
 Tested up to: 6.8.2
 Requires PHP: 7.4
@@ -9,7 +9,7 @@ Stable tag: 3.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Transform your Contact Form 7 with powerful multiple file upload capabilities. Allow users to upload unlimited files with an intuitive interface, complete file management, and automatic ZIP compression for email delivery.
+Upload unlimited files to Contact Form 7 with an intuitive interface, file management, and automatic ZIP compression for email delivery.
 
 == Description ==
 
