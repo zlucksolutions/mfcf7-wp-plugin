@@ -92,6 +92,3 @@ label textarea[name="other_reason"] {
     width: 100%;
   }
 }
-.tag-generator-panel .insert-box input.tag {
-  width: 500px !important;
-}
