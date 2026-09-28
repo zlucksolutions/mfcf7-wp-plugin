@@ -22,4 +22,4 @@ These rules apply to every task in this repo, by any team member or Claude sessi
 
 ## Secrets and outbound data
 - Never commit keys, tokens or credentials. The plugin has none today; keep it that way.
-- Any new request that sends data off the customer's site must be listed in the owning spec and in the `== Privacy Policy ==` section of `readme.txt`. The existing Google Form feedback submission in `multiline-admin.php` is not currently disclosed there.
+- Any new request that sends data off the customer's site must be listed in the owning spec and in the `== Privacy Policy ==` section of `readme.txt`. Personal data (emails, site URLs) needs an unticked opt-in; see `specs/admin/deactivation-feedback-privacy.md`.

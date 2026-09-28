@@ -1,5 +1,9 @@
 <?php
 
+if (!defined('ABSPATH')) {
+	exit;
+}
+
 // enqueue admin style
 function mfcf7_enqueue_plugin_style()
 {
@@ -314,9 +318,15 @@ if (!class_exists('ZipArchive')) {
 
 function mfcf7_zl_deactivation_popup()
 {
-
-	echo get_option('mfcf7_zl_plugin_deactivate_request');
-
+	// Values are sent to our feedback form in English, so the labels can be translated without changing the feedback sheet.
+	$reasons = array(
+		'I found a better plugin.'                                   => __('I found a better plugin', 'zl-mfcf7'),
+		'This plugin does not work on my site'                       => __('This plugin does not work on my site', 'zl-mfcf7'),
+		'Design is outdated, difficult to navigate'                  => __('Design is outdated, difficult to navigate', 'zl-mfcf7'),
+		"It's just temporary. I will be back soon."                  => __("It's just temporary. I will be back soon", 'zl-mfcf7'),
+		'It is not what I am looking for.'                           => __('It is not what I am looking for', 'zl-mfcf7'),
+		' I am finding it difficult to configure it as per my needs' => __('I am finding it difficult to configure it as per my needs', 'zl-mfcf7'),
+	);
 	?>
 
 	<!-- Popup HTML Structure -->
@@ -337,7 +347,7 @@ function mfcf7_zl_deactivation_popup()
 
 					<div class="mfcf7-modal-header">
 
-						<h2>MFCF7 Feedback</h2>
+						<h2><?php esc_html_e('MFCF7 Feedback', 'zl-mfcf7'); ?></h2>
 
 					</div>
 
@@ -345,97 +355,41 @@ function mfcf7_zl_deactivation_popup()
 
 						<div class="mfcf7-modal-body">
 
-							<h3><strong>If you have a moment, please let us know why you are deactivating:</strong></h3>
+							<h3><strong><?php esc_html_e('If you have a moment, please let us know why you are deactivating:', 'zl-mfcf7'); ?></strong></h3>
 
 							<ul id="cf7-any-api-list">
 
-								<li class="reason">
-
-									<label>
-
-										<input type="radio" name="selected-reason" value="I found a better plugin.">
-
-										<span for="rad">I found a better plugin</span>
-
-									</label>
-
-								</li>
+								<?php foreach ($reasons as $value => $label) : ?>
+									<li class="reason">
+										<label>
+											<input type="radio" name="selected-reason" value="<?php echo esc_attr($value); ?>">
+											<span><?php echo esc_html($label); ?></span>
+										</label>
+									</li>
+								<?php endforeach; ?>
 
 								<li class="reason">
-
 									<label>
-
-										<input type="radio" name="selected-reason" value="This plugin does not work on my site">
-
-										<span for="rad">This plugin does not work on my site</span>
-
-									</label>
-
-								</li>
-
-								<li class="reason">
-
-									<label>
-
-										<input type="radio" name="selected-reason" value="Design is outdated, difficult to navigate">
-
-										<span for="rad">Design is outdated, difficult to navigate</span>
-
-									</label>
-
-								</li>
-
-								<li class="reason">
-
-									<label>
-
-										<input type="radio" name="selected-reason" value="It's just temporary. I will be back soon.">
-
-										<span for="rad">It's just temporary. I will be back soon</span>
-
-									</label>
-
-								</li>
-
-								<li class="reason">
-
-									<label>
-
-										<input type="radio" name="selected-reason" value="It is not what I am looking for.">
-
-										<span for="rad">It is not what I am looking for</span>
-
-									</label>
-
-								</li>
-
-								<li class="reason">
-
-									<label>
-
-										<input type="radio" name="selected-reason" value=" I am finding it difficult to configure it as per my needs">
-
-										<span for="rad"> I am finding it difficult to configure it as per my needs</span>
-
-									</label>
-
-								</li>
-
-								<li class="reason">
-
-									<label>
-
 										<input type="radio" name="selected-reason" value="Other">
-
-										<span for="rad">Other</span>
-
-										<textarea name="other_reason" placeholder="Enter your reason(please specify)"></textarea>
-
+										<span><?php esc_html_e('Other', 'zl-mfcf7'); ?></span>
+										<textarea name="other_reason" placeholder="<?php esc_attr_e('Enter your reason(please specify)', 'zl-mfcf7'); ?>"></textarea>
 									</label>
-
 								</li>
 
 							</ul>
+
+							<div class="mfcf7-zl-consent">
+								<label>
+									<input type="checkbox" name="mfcf7_zl_consent" value="1" autocomplete="off">
+									<?php esc_html_e('You can contact me by email about my feedback (this also shares my email and website address).', 'zl-mfcf7'); ?>
+								</label>
+								<p class="description">
+									<?php esc_html_e('When you click "Submit & Deactivate", the reason you chose is sent to Zluck Solutions (through Google Forms) to help us improve the plugin. Your email and website address are sent only if you tick the box above. Nothing is sent if you click "Cancel & Deactivate" or close this window.', 'zl-mfcf7'); ?>
+									<a href="https://wordpress.org/plugins/multiline-files-for-contact-form-7/" target="_blank"><?php esc_html_e('Plugin privacy details', 'zl-mfcf7'); ?></a>
+									|
+									<a href="https://policies.google.com/privacy" target="_blank"><?php esc_html_e('Google Privacy Policy', 'zl-mfcf7'); ?></a>
+								</p>
+							</div>
 
 						</div>
 
@@ -449,9 +403,9 @@ function mfcf7_zl_deactivation_popup()
 
 							</div>
 
-							<input type="submit" class="button button-secondary zl_mfcf_btn " id="deactivate-custom-post-type-filter" value="Submit &amp; Deactivate">
+							<input type="submit" class="button button-secondary zl_mfcf_btn " id="deactivate-custom-post-type-filter" value="<?php esc_attr_e('Submit & Deactivate', 'zl-mfcf7'); ?>">
 
-							<input type="button" class="button button-secondary zl_mfcf_btn cancel-deactivate-button" value="Cancel &amp; Deactivate">
+							<input type="button" class="button button-secondary zl_mfcf_btn cancel-deactivate-button" value="<?php esc_attr_e('Cancel & Deactivate', 'zl-mfcf7'); ?>">
 
 						</div>
 
@@ -478,67 +432,45 @@ add_action('admin_footer', 'mfcf7_zl_deactivation_popup');
 function mfcf7_zl_custom_handle_deactivation_plugin_form_submission()
 {
 
-	if (! isset($_POST['_wpnonce']) || ! wp_verify_nonce($_POST['_wpnonce'], 'custom_plugin_deactivate_nonce')) {
+	if (! isset($_POST['_wpnonce']) || ! wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['_wpnonce'])), 'custom_plugin_deactivate_nonce')) {
 		wp_send_json_error(array('message' => esc_html__('Nonce verification failed. Please refresh the page and try again.', 'zl-mfcf7')));
 		return;
 	}
 
-	// Log the start of the function
-	if (! current_user_can('administrator')) {
+	if (! current_user_can('activate_plugins')) {
 		// Set a transient or option to show the admin notice
 		set_transient('mfcf7_zl_deactivation_error', esc_html__('You do not have permission to deactivate this plugin.', 'zl-mfcf7'), 30);
 
 		wp_send_json_error(array('message' => esc_html__('You do not have permission to deactivate this plugin.', 'zl-mfcf7')));
 	}
 
-	if (isset($_POST['reason'])) {
+	update_option('mfcf7_zl_plugin_deactivate_request', true);
 
-		// Get the selected reason
+	$reason = isset($_POST['reason']) ? sanitize_text_field(wp_unslash($_POST['reason'])) : '';
+	if ('Other' === $reason) {
+		$reason = isset($_POST['other_reason']) ? sanitize_text_field(wp_unslash($_POST['other_reason'])) : '';
+	}
 
-		$reason = sanitize_text_field($_POST['reason']);
-
-		$otherReason = isset($_POST['other_reason']) ? sanitize_text_field($_POST['other_reason']) : '';
-
-		// Log the form data
-
-		update_option('mfcf7_zl_plugin_deactivate_request', true);
-
-
-
-		// Get current site URL
-
-		$site_url = get_site_url();
-
-		// Get current user's email
-
-		$current_user = wp_get_current_user();
-
-		$user_email = $current_user->user_email;
-
-		// Prepare data to send to Google Form
-
+	if ('' !== $reason) {
 		$form_data = array(
-
-			'entry.1315009358' => $site_url,
-
-			'entry.144564863' => $user_email,
-
-			'entry.1682553995' => $reason === 'Other' ? $otherReason : $reason
-
+			'entry.1682553995' => $reason,
 		);
 
-		// Send data to Google Form endpoint via AJAX
+		// Email and site address leave the site only when the admin ticks the consent box.
+		if (isset($_POST['consent']) && '1' === $_POST['consent']) {
+			$form_data['entry.1315009358'] = get_site_url();
+			$form_data['entry.144564863']  = wp_get_current_user()->user_email;
+		}
 
-		$response = wp_remote_post('https://docs.google.com/forms/u/0/d/e/1FAIpQLSeKd-6b__62G4gZ1UNkY90q4Ws0SbSUiDVuRSPkLNaIYK43nQ/formResponse', array(
-
-			'body' => $form_data
-
+		wp_remote_post('https://docs.google.com/forms/u/0/d/e/1FAIpQLSeKd-6b__62G4gZ1UNkY90q4Ws0SbSUiDVuRSPkLNaIYK43nQ/formResponse', array(
+			'body'       => $form_data,
+			'timeout'    => 5,
+			// The default user-agent contains the site URL, which must not be sent without consent.
+			'user-agent' => 'WordPress',
 		));
-
-		// Attempt to deactivate the plugin
-
-		wp_send_json_success(array('message' => 'Plugin deactivation requested successfully.'));
 	}
+
+	wp_send_json_success(array('message' => 'Plugin deactivation requested successfully.'));
 }
 
 add_action('wp_ajax_custom_plugin_deactivate', 'mfcf7_zl_custom_handle_deactivation_plugin_form_submission');
@@ -561,7 +493,12 @@ add_action('admin_notices', 'mfcf7_zl_show_admin_notice');
 
 function mfcf7_zl_handle_deactivation_plugin_without_feedback()
 {
-	if (! current_user_can('administrator')) {
+	if (! isset($_POST['_wpnonce']) || ! wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['_wpnonce'])), 'custom_plugin_deactivate_nonce')) {
+		wp_send_json_error(array('message' => esc_html__('Nonce verification failed. Please refresh the page and try again.', 'zl-mfcf7')));
+		return;
+	}
+
+	if (! current_user_can('activate_plugins')) {
 		// Send a JSON response indicating the lack of permission
 		wp_send_json_error(array('message' => esc_html__('You do not have permission to deactivate this plugin.', 'zl-mfcf7')));
 		add_action('admin_notices', 'mfcf7_zl_permission_error_notice');

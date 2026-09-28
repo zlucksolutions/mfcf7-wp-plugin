@@ -13,4 +13,5 @@ Group | File Path | Description | Status
 
 ## Specs
 
-(empty, Claude will add entries here as specs are created)
+admin | specs/admin/deactivation-feedback-privacy.md | Deactivation pop-up sends email and site address only with an unticked opt-in checkbox; correct the Privacy Policy (WordPress.org violation) | Implemented
+admin | specs/admin/deactivation-popup-redesign.md | Modern, accessible WordPress-style design for the deactivation feedback pop-up (3.1.2) | Draft

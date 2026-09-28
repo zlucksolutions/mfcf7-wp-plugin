@@ -39,7 +39,7 @@ This file is read in full every session, every line here is a fixed cost paid on
 - **Validation errors are attached to the button, not the field.** The tag name is renamed to `{name}-zl-mfcf7-upld-btn` before calling `invalidate()`, so the error shows next to the upload button.
 - **One field per form or page.** The front-end JS clones a hidden template input using the fixed IDs `#mfcf7_zl_add_file` and `#mfcf7_zl_multifilecontainer`. Supporting multiple fields is a Pro feature.
 - **There are two near-identical validation functions** (`..._validation_filter` and `..._validation_filtero`), chosen by Contact Form 7 version. A fix to one usually needs the same fix in the other.
-- **Deactivation is deferred.** The pop-up sets the option `mfcf7_zl_plugin_deactivate_request`, and the plugin deactivates itself on the next `admin_init`. "Submit & Deactivate" sends the site URL, the admin's email and the chosen reason to an external Google Form.
+- **Deactivation is deferred.** The pop-up sets the option `mfcf7_zl_plugin_deactivate_request`, and the plugin deactivates itself on the next `admin_init`. "Submit & Deactivate" sends the reason to an external Google Form, plus the admin's email and site URL only if the unticked consent box is ticked (see `specs/admin/deactivation-feedback-privacy.md`).
 
 ## Rules
 Coding and team rules are in `.claude/rules/` (`team-rules.md`, `wordpress-plugin.md`, `design-system.md`). Feature specs are in `specs/`, with the process in `specs/WORKFLOW.md`.
