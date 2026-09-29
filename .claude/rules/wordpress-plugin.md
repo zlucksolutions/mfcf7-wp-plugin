@@ -11,7 +11,7 @@ How PHP and JS are written in this plugin. Visual and CSS rules are in `design-s
 ## Naming
 - New functions, options, transients and nonces: `mfcf7_zl_` prefix, snake_case (for example `mfcf7_zl_multilinefile_create_zip`). Older names that break this (`mfcf7_plugin_meta_links`, `custom_plugin_deactivate`, `custom_plugin_ajax_object`) stay as they are.
 - New CSS classes: `mfcf7-zl-` prefix (kebab-case) or `mfcf7_zl_` (to match the existing IDs). New JS lives in the existing `js/zl-multine-*.js` files.
-- Text domain is always `'zl-mfcf7'`.
+- Text domain is always `'multiline-files-for-contact-form-7'` (must match the plugin slug so translate.wordpress.org can auto-load official translations; see `specs/i18n/text-domain-fix.md`).
 
 ## Public contracts: never rename or remove
 These are stored in customers' forms and databases or used by their own code:
@@ -28,8 +28,8 @@ These are stored in customers' forms and databases or used by their own code:
 - Validate uploads by extension and size, as the validation functions already do. Never trust the browser's `type` value.
 
 ## Translation
-- Wrap every user-facing string in `__()` / `esc_html__()` / `_e()` with the `'zl-mfcf7'` domain. Several strings in the admin Tag Generator panel are not wrapped yet.
-- When you add strings, update `languages/zl-mfcf7-*.po` and regenerate the `.mo` files.
+- Wrap every user-facing string in `__()` / `esc_html__()` / `_e()` with the `'multiline-files-for-contact-form-7'` domain. Several strings in the admin Tag Generator panel are not wrapped yet.
+- When you add strings, update `languages/multiline-files-for-contact-form-7-*.po` and regenerate the `.mo` files.
 
 ## Assets
 - Load assets only through `wp_enqueue_script` / `wp_enqueue_style` with a version argument. Don't put `?12` query strings in URLs and don't use `time()` as the version. Existing code does both.

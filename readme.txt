@@ -3,7 +3,7 @@ Contributors: zluck, divyeshk71
 Donate link: https://www.buymeacoffee.com/zluck
 Tags: contact form 7, multiple file upload, file attachment, form plugin, file uploader
 Requires at least: 5.6
-Tested up to: 6.8.2
+Tested up to: 7.1
 Requires PHP: 7.4
 Stable tag: 3.1.1
 License: GPLv2 or later
@@ -135,7 +135,14 @@ Yes! The plugin is licensed under GPL, so you can use it on as many sites as you
 * Privacy: the pop-up now explains what is sent. Nothing is sent with "Cancel & Deactivate" or when you close the pop-up.
 * Privacy: updated the Privacy Policy section to describe the feedback data accurately.
 * Security: added a nonce check to "Cancel & Deactivate" and switched the deactivation handlers to the `activate_plugins` capability.
+* Security: escaped remaining unescaped output in the admin notices and pop-up.
 * Fix: removed a stray value printed in the admin footer.
+* Fix: added a version number to enqueued scripts and styles so browsers pick up updates reliably.
+* Fix: the plugin's text domain now matches its WordPress.org slug, so official translations load correctly.
+* Fix: removed unused legacy upload code and switched remaining file operations to WordPress's recommended filesystem functions.
+* Fix: added the missing License field to the plugin header.
+* Security: added a nonce check to the "No Thanks" / "Maybe Later" / "Already Rated" admin notice links.
+* Fix: removed the redundant load_plugin_textdomain() call and prefixed internal global variables.
 
 = 3.1.0 =
 * ✅ **MAJOR UPDATE** - Full compatibility with WordPress 6.8.2

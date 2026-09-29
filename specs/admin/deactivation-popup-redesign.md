@@ -41,7 +41,7 @@ Layout and style only, plus the small accessibility and reload fixes. The data s
 7. **Small screens (480px and below).** The card uses the full width minus a 16px margin on each side, and the buttons stack full width with "Submit & Deactivate" on top.
 8. **Fix the Cancel reload race.** In the "Cancel & Deactivate" handler, remove the extra `location.reload()` that runs straight away, so the page reloads only after the AJAX request finishes (success or error).
 9. **Keep existing hooks.** Keep all current IDs and classes that the JS uses (`.admin-popup-container`, `#custom-plugin-modal`, `#custom-plugin-modal-overlay`, `#custom-plugin-deactivate-form`, `.cancel-deactivate-button`, `.button-close`, `#loader`, `input[name="selected-reason"]`, `input[name="mfcf7_zl_consent"]`). New classes use the `mfcf7-zl-` prefix.
-10. **Translations.** New or changed text ("Quick feedback", the subtitle, "Close") is wrapped in `zl-mfcf7` functions and added to both `.po` files. The `.mo` files are rebuilt.
+10. **Translations.** New or changed text ("Quick feedback", the subtitle, "Close") is wrapped in `multiline-files-for-contact-form-7` domain functions and added to both `.po` files. The `.mo` files are rebuilt.
 11. **Release as 3.1.2.** Update the `Version:` header, `Stable tag:` and add a changelog entry ("Improved: modern, accessible design for the deactivation feedback pop-up.").
 
 Why this approach: it looks at home in the WordPress admin, reuses WordPress's own buttons, colours and `.description` style, and fixes the real usability gaps without touching the privacy behaviour that was just reviewed.
@@ -51,7 +51,7 @@ Why this approach: it looks at home in the WordPress admin, reuses WordPress's o
 - `css/admin-style.css`: rewrite of the "For deactivation popup" block, including the 480px rules
 - `js/zl-multine-admin-files.js`: selected-row class, Escape/backdrop close, focus handling, disabled buttons while sending, Cancel reload fix
 - `.claude/rules/design-system.md`: add the new admin colour values below to the Admin table
-- `languages/zl-mfcf7-en_US.po`, `languages/zl-mfcf7-es_ES.po` and their `.mo` files: new strings
+- `languages/multiline-files-for-contact-form-7-en_US.po`, `languages/multiline-files-for-contact-form-7-es_ES.po` and their `.mo` files: new strings
 - `readme.txt`: `Stable tag: 3.1.2`, changelog entry
 - `multiline-files-upload-for-contact-form-7.php`: `Version: 3.1.2`
 

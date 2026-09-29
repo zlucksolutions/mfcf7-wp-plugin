@@ -9,7 +9,7 @@ MultiLine Files for Contact Form 7 (free edition) is a WordPress plugin by Zluck
 - jQuery (WordPress's bundled copy) for the front-end and admin scripts
 - Plain CSS with no build step
 - PHP `ZipArchive` extension for zipping attachments
-- Translations: gettext `.po`/`.mo` files, text domain `zl-mfcf7`
+- Translations: gettext `.po`/`.mo` files, text domain `multiline-files-for-contact-form-7`
 
 ## Key Commands
 There is no package manager, build, lint or test tooling. Edit the files directly.
