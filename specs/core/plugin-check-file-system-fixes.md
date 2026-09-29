@@ -36,5 +36,6 @@ Why this approach: two validation functions are explicitly called out in `CLAUDE
 ## Implementation Notes
 - Done as planned. `php -l` passes; final sweep confirms no remaining raw `chmod()`/`move_uploaded_file()`/`unlink()`/`rmdir()` calls in the file.
 - Deviation: `mfcf7_zl_multilinefile_remove()` was kept (not deleted) even though it's currently a no-op, since removing it meant touching 12 call sites across both validation functions for no functional gain.
+- Manual test passed: submitted a form with 2+ files, received the ZIP attachment by email; single-file submission arrived as a single attachment. Confirms the `WP_Filesystem`-based `chmod()` in `mfcf7_zlchange_attachments()` didn't break attachment delivery.
 
 ## Change Request History

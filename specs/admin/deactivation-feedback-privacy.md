@@ -94,7 +94,8 @@ Out of scope (leave for later specs): loading admin CSS/JS only on the Plugins s
 - **Reply to the review team.** After releasing 3.1.1, reply to their email with the version number and a short list of what changed (unticked opt-in checkbox, notice in pop-up, Privacy Policy rewrite, security fixes). Who sends this?
 
 ## Implementation Notes
-- Done as planned in 3.1.1. The pop-up reasons now render from a `$reasons` array (English value → translated label); the handlers were checked with stubbed WordPress functions for all send/no-send cases. Manual tests on a real site are still to be run.
+- Done as planned in 3.1.1. The pop-up reasons now render from a `$reasons` array (English value → translated label); the handlers were checked with stubbed WordPress functions for all send/no-send cases.
+- File-upload/attachment behavior confirmed working on a real site after the later `WP_Filesystem` changes (single file and multi-file ZIP both arrived by email). The deactivation pop-up's own manual test list (consent checkbox, nonce, Cancel/close send-nothing cases) is still to be run separately.
 - Deviation (agreed): added a `.mfcf7-zl-consent` rule to `css/admin-style.css` for the divider and email/URL wrapping. Also added a 3.1.1 Upgrade Notice to `readme.txt`.
 - The "Plugin privacy details" link points to the plugin's WordPress.org page, because WordPress.org has no direct anchor for the readme's Privacy Policy section.
 - Follow-up: the "Cancel & Deactivate" JS still calls `location.reload()` straight after starting the AJAX request, so the reload can cut the request off before deactivation is saved (existing behaviour, not changed here).
