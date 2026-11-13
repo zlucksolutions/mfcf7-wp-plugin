@@ -5,7 +5,7 @@ Tags: contact form 7, multiple file upload, file attachment, form plugin, file u
 Requires at least: 5.6
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 3.1.1
+Stable tag: 3.1.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -129,6 +129,9 @@ Yes! The plugin is licensed under GPL, so you can use it on as many sites as you
 8. **Multiple File Support** - Upload unlimited files with intuitive management
 
 == Changelog ==
+
+= 3.1.2 =
+* Fix: removed the "Using null as an array offset is deprecated" notice shown by Contact Form 7 on PHP 8.5 for forms with a [multilinefile] field. Thanks to bvado for the report and the fix.
 
 = 3.1.1 =
 * Privacy: the deactivation feedback pop-up no longer sends your email address or website address unless you tick the new, unticked "you can contact me" box.
@@ -254,6 +257,9 @@ Yes! The plugin is licensed under GPL, so you can use it on as many sites as you
 * Initial Release
 
 == Upgrade Notice ==
+
+= 3.1.2 =
+Fixes a deprecation notice on PHP 8.5. Recommended if you use PHP 8.5.
 
 = 3.1.1 =
 Privacy update: the deactivation feedback form now asks for your consent before sending your email address or website address. Recommended for all users.

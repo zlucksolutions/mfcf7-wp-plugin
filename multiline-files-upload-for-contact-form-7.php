@@ -4,7 +4,7 @@
  * Plugin Name: MultiLine Files for Contact Form 7
  * Description: Upload unlimited files one by one to contact form 7
  * Plugin URI: https://wordpress.org/plugins/multiline-files-for-contact-form-7/
- * Version: 3.1.1
+ * Version: 3.1.2
  * Author: Zluck Solutions
  * Author URI: https://profiles.wordpress.org/zluck
  * Text Domain: multiline-files-for-contact-form-7
@@ -21,7 +21,7 @@ if (!defined('ABSPATH')) {
 	exit;
 }
 
-define('MFCF7_ZL_VERSION', '3.1.1');
+define('MFCF7_ZL_VERSION', '3.1.2');
 
 // Include the deactivation handler
 require_once plugin_dir_path(__FILE__) . 'multiline-admin.php';
@@ -168,7 +168,7 @@ function mfcf7_zl_multilinefile_shortcode_handler($tag)
 	$atts['class'] = $tag->get_class_option($class);
 	$atts['id'] = $tag->get_id_option();
 	$atts['tabindex'] = $tag->get_option('tabindex', 'int', true);
-	$atts['accept'] = $tag->get_option('accept', null, true);
+	$atts['accept'] = $tag->get_option('accept', '', true);
 	$atts['multiple'] = 'multiple';
 	$values = isset($tag->values[0]) ? $tag->values[0] : '';
 
